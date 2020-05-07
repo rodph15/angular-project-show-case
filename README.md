@@ -1,1 +1,1 @@
-# angular-project-show-case
+access my website https://rodolfoschmidt.com/ to complete guide
