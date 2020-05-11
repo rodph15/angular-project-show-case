@@ -1,1 +1,7 @@
-<p>order-create works!</p>
+<form>
+    <label for="description">Description:</label><br>
+    <input type="text" id="description" name="description" [(ngModel)]="order.description"><br>
+    <label for="ammount">Ammount:</label><br>
+    <input type="number" id="ammount" name="ammount" [(ngModel)]="order.ammount">
+</form>
+<button (click)="SaveOrder()">Save</button>

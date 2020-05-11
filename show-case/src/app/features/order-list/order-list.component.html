@@ -1,1 +1,32 @@
-<p>order-list works!</p>
+<button routerLink="/order-create">Add</button>
+<table>
+    <thead>
+        <tr>
+            <th>Description</th>
+            <th>Ammount</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody *ngIf="orders.length > 0">
+        <tr *ngFor="let order of orders;let i=index">
+            <td>
+                {{order.description}}
+            </td>
+            <td>
+                {{order.ammount}}
+            </td>
+            <td>
+                <a href="#" routerLink="/order-edit/{{ i }}">Edit</a>
+                <a style="padding-left: 0.1cm;" href="#" (click)="DeleteOrder(i)">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+    <tbody *ngIf="orders.length === 0">
+        <tr>
+            <td colspan="2">
+                No data
+            </td>
+        </tr>
+    </tbody>
+
+</table>

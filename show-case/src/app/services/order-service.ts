@@ -12,28 +12,31 @@ export class OrderService {
 
   private CreateOrderUrl: string = "YourUrlApiOrder";
   private EditOrderUrl: string = "YourUrlApiOrder";
-  private GetOrderUrl:string = "YourUrlApiOrder";
-  private GetOrderByIdUrl:string = "YourUrlApiOrder";
-  private DeleteOrderUrl:string = "YourUrlApiOrder";
+  private GetOrderUrl: string = "YourUrlApiOrder";
+  private GetOrderByIdUrl: string = "YourUrlApiOrder";
+  private DeleteOrderUrl: string = "YourUrlApiOrder";
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  DoDeleteOrder(id:number): Observable<any>{
+  DoDeleteOrder(id: number): Observable<any> {
     return this.http.delete<number>(`${environment.url}${this.DeleteOrderUrl}/${id}`);
   }
 
-  DoCreateOrder(order: Order): Observable<IOrder>{
-    return this.http.post<IOrder>(environment.url+ this.CreateOrderUrl,order);
+  DoCreateOrder(order: Order): Observable<IOrder> {
+    return this.http.post<IOrder>(environment.url + this.CreateOrderUrl, order);
   }
 
-  DoEditOrder(Order: Order): Observable<IOrder>{
-    return this.http.put<IOrder>(environment.url+ this.EditOrderUrl,Order);
+  DoEditOrder(Order: Order): Observable<IOrder> {
+    return this.http.put<IOrder>(environment.url + this.EditOrderUrl, Order);
   }
 
-  GetOrders(id:number): Observable<any>{
+  /*GetOrders(): Observable<any> {
     return this.http.get(environment.url+this.GetOrderUrl);
+  }*/
+  GetOrders() {
+    return JSON.parse(localStorage.getItem("orders")) ? JSON.parse(localStorage.getItem("orders")) : new Array();
   }
-  GetOrderById(id:number): Observable<any>{
+  GetOrderById(id: number): Observable<any> {
     return this.http.get<number>(`${environment.url}${this.GetOrderByIdUrl}/${id}`);
   }
 

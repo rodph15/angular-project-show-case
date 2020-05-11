@@ -17,10 +17,10 @@ import { OrderService } from './services/order-service';
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule,
     OrderEditModule, 
     OrderCreateModule, 
     OrderListModule,
+    AppRoutingModule,
   ],
   providers: [OrderService],
   bootstrap: [AppComponent]
